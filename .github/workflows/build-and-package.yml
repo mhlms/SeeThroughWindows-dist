@@ -114,16 +114,18 @@ jobs:
         path: ${{ steps.create-zip.outputs.zip-name }}
         retention-days: 30
 
-    - name: Upload to release (if release event)
-      if: github.event_name == 'release'
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ github.event.release.upload_url }}
-        asset_path: ${{ steps.create-zip.outputs.zip-path }}
-        asset_name: ${{ steps.create-zip.outputs.zip-name }}
-        asset_content_type: application/zip
+    # The following step was commented out because actions/upload-release-asset@v1 is deprecated and unavailable.
+    # For release uploads, please use softprops/action-gh-release@v2 in a separate release workflow.
+    # - name: Upload to release (if release event)
+    #   if: github.event_name == 'release'
+    #   uses: actions/upload-release-asset@v1
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #   with:
+    #     upload_url: ${{ github.event.release.upload_url }}
+    #     asset_path: ${{ steps.create-zip.outputs.zip-path }}
+    #     asset_name: ${{ steps.create-zip.outputs.zip-name }}
+    #     asset_content_type: application/zip
 
   # Optional: Create a matrix build for different configurations
   build-matrix:
