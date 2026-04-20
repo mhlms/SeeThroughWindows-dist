@@ -97,8 +97,8 @@ static class Program
     /// </summary>
     private static void ConfigureServices(ServiceContainer container)
     {
-        // --- Register localization service first (singleton) ---
-        container.RegisterSingleton<ILocalizationService, LocalizationService>();
+        // Register localization service as singleton
+        container.RegisterFactory<ILocalizationService>(() => new LocalizationService());
 
         // --- Register core services ---
         container.RegisterTransient<ISettingsManager, RegistrySettingsManager>();
