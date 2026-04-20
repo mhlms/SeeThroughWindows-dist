@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <!-- ==================== 窗体与分组 ==================== -->
+  <data name="FormTitle" xml:space="preserve">
+    <value>See Through Windows 选项</value>
+  </data>
+  <data name="GroupBoxTransparent" xml:space="preserve">
+    <value>窗口透明化</value>
+  </data>
+  <data name="GroupBoxMove" xml:space="preserve">
+    <value>移动窗口</value>
+  </data>
+  <data name="GroupBoxAppearance" xml:space="preserve">
+    <value>外观</value>
+  </data>
+
+  <!-- ==================== 标签（Labels） ==================== -->
+  <data name="LabelHotkey" xml:space="preserve">
+    <value>快捷键(&amp;H):</value>
+  </data>
+  <data name="LabelTransparency" xml:space="preserve">
+    <value>透明度(&amp;T):</value>
+  </data>
+  <data name="LabelTransparent" xml:space="preserve">
+    <value>透明</value>
+  </data>
+  <data name="LabelOpaque" xml:space="preserve">
+    <value>不透明</value>
+  </data>
+  <data name="LabelTheme" xml:space="preserve">
+    <value>主题(&amp;T):</value>
+  </data>
+  <data name="LabelAccentColor" xml:space="preserve">
+    <value>强调色(&amp;A):</value>
+  </data>
+  <data name="LabelLanguage" xml:space="preserve">
+    <value>语言(&amp;L):</value>
+  </data>
+
+  <!-- ==================== 复选框（CheckBoxes） ==================== -->
+  <data name="CheckBoxShift" xml:space="preserve">
+    <value>Shift(&amp;S)</value>
+  </data>
+  <data name="CheckBoxControl" xml:space="preserve">
+    <value>Control(&amp;C)</value>
+  </data>
+  <data name="CheckBoxAlt" xml:space="preserve">
+    <value>Alt(&amp;A)</value>
+  </data>
+  <data name="CheckBoxWindows" xml:space="preserve">
+    <value>Windows(&amp;W)</value>
+  </data>
+  <data name="CheckBoxClickThrough" xml:space="preserve">
+    <value>使窗口“鼠标穿透”(&amp;L)</value>
+  </data>
+  <data name="CheckBoxTopMost" xml:space="preserve">
+    <value>... 并保持在所有窗口顶层(&amp;O)</value>
+  </data>
+  <data name="CheckBoxPreview" xml:space="preserve">
+    <value>预览透明度(&amp;P)</value>
+  </data>
+  <data name="CheckBoxEnablePageUpDown" xml:space="preserve">
+    <value>启用 Ctrl+Win+PageUp/PageDown 调整透明度(&amp;T)</value>
+  </data>
+  <data name="CheckBoxEnableUpDown" xml:space="preserve">
+    <value>启用 Ctrl+Win+Up/Down 最大化/最小化窗口(&amp;M)</value>
+  </data>
+  <data name="CheckBoxEnableLeftRight" xml:space="preserve">
+    <value>启用 Ctrl+Win+Left/Right 将窗口移动到其他显示器(&amp;S)</value>
+  </data>
+  <data name="CheckBoxAutoApplyOnStartup" xml:space="preserve">
+    <value>启动时自动应用透明到可见窗口(&amp;A)</value>
+  </data>
+
+  <!-- ==================== 按钮（Buttons） ==================== -->
+  <data name="ButtonUndoTransparency" xml:space="preserve">
+    <value>撤销透明</value>
+  </data>
+  <data name="ButtonResetGlobally" xml:space="preserve">
+    <value>全局重置透明度</value>
+  </data>
+
+  <!-- ==================== 菜单与系统托盘 ==================== -->
+  <data name="MenuOptions" xml:space="preserve">
+    <value>选项(&amp;O)...</value>
+  </data>
+  <data name="MenuExit" xml:space="preserve">
+    <value>退出(&amp;X)</value>
+  </data>
+  <data name="TrayIconText" xml:space="preserve">
+    <value>See Through Windows</value>
+  </data>
+
+  <!-- ==================== 状态栏与更新 ==================== -->
+  <data name="LinkLabelHelp" xml:space="preserve">
+    <value>See Through Windows ({0}) v{1} - MOBZystems</value>
+    <comment>{0} = 位数（64位/32位）, {1} = 版本号</comment>
+  </data>
+  <data name="UpdateAvailable" xml:space="preserve">
+    <value>新版本 v{0} 可用</value>
+    <comment>{0} = 版本字符串</comment>
+  </data>
+
+  <!-- ==================== 主题名称（Flavor Display Names） ==================== -->
+  <data name="ThemeNameLatte" xml:space="preserve">
+    <value>🌻 Latte</value>
+  </data>
+  <data name="ThemeNameFrappe" xml:space="preserve">
+    <value>🪴 Frappé</value>
+  </data>
+  <data name="ThemeNameMacchiato" xml:space="preserve">
+    <value>🌺 Macchiato</value>
+  </data>
+  <data name="ThemeNameMocha" xml:space="preserve">
+    <value>🌿 Mocha</value>
+  </data>
+
+  <!-- ==================== 强调色名称（Accent Color Display Names） ==================== -->
+  <data name="AccentColorLavender" xml:space="preserve">
+    <value>💜 薰衣草紫</value>
+  </data>
+  <data name="AccentColorBlue" xml:space="preserve">
+    <value>💙 蓝</value>
+  </data>
+  <data name="AccentColorMauve" xml:space="preserve">
+    <value>🔮 紫红</value>
+  </data>
+  <data name="AccentColorPink" xml:space="preserve">
+    <value>💗 粉</value>
+  </data>
+  <data name="AccentColorTeal" xml:space="preserve">
+    <value>🌊 青绿</value>
+  </data>
+  <data name="AccentColorGreen" xml:space="preserve">
+    <value>💚 绿</value>
+  </data>
+  <data name="AccentColorPeach" xml:space="preserve">
+    <value>🍑 桃</value>
+  </data>
+  <data name="AccentColorYellow" xml:space="preserve">
+    <value>💛 黄</value>
+  </data>
+  <data name="AccentColorRed" xml:space="preserve">
+    <value>❤️ 红</value>
+  </data>
+  <data name="AccentColorSky" xml:space="preserve">
+    <value>🩵 天蓝</value>
+  </data>
+
+  <!-- ==================== 语言名称（Language Display Names） ==================== -->
+  <data name="LanguageEnglish" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="LanguageChineseSimplified" xml:space="preserve">
+    <value>简体中文</value>
+  </data>
+
+  <!-- ==================== 气泡提示与消息框 ==================== -->
+  <data name="MessageAlreadyRunning" xml:space="preserve">
+    <value>See Through Windows 已在系统托盘中运行！</value>
+  </data>
+  <data name="MessageCouldNotOpenWebPage" xml:space="preserve">
+    <value>无法打开网页</value>
+  </data>
+  <data name="MessageCouldNotGetTransparency" xml:space="preserve">
+    <value>无法获取此窗口的透明度</value>
+  </data>
+  <data name="MessageAppStartupError" xml:space="preserve">
+    <value>应用程序启动失败：</value>
+  </data>
+
+  <data name="BalloonCannotDesktop" xml:space="preserve">
+    <value>无法将桌面设为透明</value>
+  </data>
+  <data name="BalloonTransparencyFailed" xml:space="preserve">
+    <value>无法设置此窗口的透明度</value>
+  </data>
+  <data name="BalloonCannotMinimize" xml:space="preserve">
+    <value>无法最小化桌面</value>
+  </data>
+  <data name="BalloonCannotMaximize" xml:space="preserve">
+    <value>无法最大化桌面</value>
+  </data>
+  <data name="BalloonCannotSendMonitor" xml:space="preserve">
+    <value>无法将桌面移动到其他显示器</value>
+  </data>
+  <data name="BalloonMoveFailed" xml:space="preserve">
+    <value>移动窗口失败</value>
+  </data>
+  <data name="BalloonPlaceFailed" xml:space="preserve">
+    <value>放置窗口失败</value>
+  </data>
+  <data name="BalloonAutoApplySuccess" xml:space="preserve">
+    <value>已自动将透明度应用到 {0} 个窗口</value>
+    <comment>{0} = 窗口数量</comment>
+  </data>
+  <data name="BalloonAutoApplyFailed" xml:space="preserve">
+    <value>自动应用透明失败，请查看调试日志了解详情。</value>
+  </data>
+  <data name="BalloonResetGloballySuccess" xml:space="preserve">
+    <value>已重置 {0} 个窗口的透明度</value>
+    <comment>{0} = 窗口数量</comment>
+  </data>
+
+  <!-- ==================== 调试与错误信息 ==================== -->
+  <data name="ErrorFailedToRestoreWindow" xml:space="preserve">
+    <value>恢复窗口失败</value>
+  </data>
+  <data name="ErrorFailedToApplyTransparency" xml:space="preserve">
+    <value>应用透明度失败</value>
+  </data>
+
+  <!-- ==================== 杂项 ==================== -->
+  <data name="TransparencyValueFormat" xml:space="preserve">
+    <value>{0}%</value>
+    <comment>{0} = 百分比 (0-100)</comment>
+  </data>
+  <data name="DefaultHotkeyDisplay" xml:space="preserve">
+    <value>（无）</value>
+  </data>
+</root>
