@@ -34,8 +34,6 @@ namespace SeeThroughWindows
             Label label1;
             Label label2;
             Label transparencyValueLabel;
-            Label themeLabel;
-            Label accentColorLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SeeThrougWindowsForm));
             toolStripSeparator1 = new ToolStripSeparator();
             pictureBox1 = new PictureBox();
