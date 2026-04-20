@@ -1,332 +1,167 @@
-# SeeThroughWindows
+# SeeThroughWindows 🪟✨
 
-Press a hotkey to make the current window transparent, allowing you to see through it!
+> 按下全局热键，让任意窗口瞬间透明！
 
-## Installation
+[![GitHub release](https://img.shields.io/github/v/release/mhlms/SeeThroughWindows-dist?style=flat-square)](https://github.com/mhlms/SeeThroughWindows-dist/releases)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg?style=flat-square)](LICENSE)
+[![.NET 9](https://img.shields.io/badge/.NET-9.0-512BD4?style=flat-square)](https://dotnet.microsoft.com/)
 
-### Option 1: Scoop Package Manager (Recommended)
+---
 
-If you have [Scoop](https://scoop.sh/) installed, you can easily install SeeThroughWindows using the package manager:
+## 📖 软件简介
+
+**SeeThroughWindows** 是一款轻量级的 Windows 窗口透明化工具。通过自定义全局热键，您可以随时切换当前窗口的透明度、开启鼠标穿透、置顶窗口，甚至一键将窗口移动到其他显示器。
+
+本仓库是 `SeeThroughWindows` 的一个分支，在原有强大功能的基础上，增加了**完整的多语言界面支持**，并对构建流程进行了优化。
+
+---
+
+## ✨ 主要特性
+
+### 🎨 现代主题外观 (Catppuccin)
+
+- 内置四种精美主题：**Latte**（亮色）、**Frappé**、**Macchiato**、**Mocha**（暗色）
+- 提供 **10 种强调色** 自由搭配（薰衣草紫、蓝、紫红、粉、青绿、绿、桃、黄、红、天蓝）
+- 所有主题均可实时切换，无需重启软件
+
+### 🌐 多语言界面（本分支新增）
+
+- 软件界面现已支持多种语言显示，并可根据需要轻松扩展
+- 语言设置自动保存，下次启动时自动恢复
+- 开发者可极简地追加新语言，无需修改业务代码
+
+### ⚡ 核心窗口操作
+
+- **全局热键** – 可自定义组合键（如 `Ctrl+Win+T`）快速切换窗口透明状态
+- **鼠标穿透** – 让透明窗口忽略鼠标点击，方便透过窗口操作下层内容
+- **窗口置顶** – 配合透明效果，让目标窗口始终浮在最前
+- **多显示器支持** – 使用热键将窗口快速移动到其他屏幕
+- **透明度微调** – 通过热键逐步增加/减少透明度
+- **自动应用** – 可选择在软件启动时自动将透明效果应用到所有可见窗口
+- **全局重置** – 一键恢复所有被透明化的窗口
+
+### 🔧 开发者友好
+
+- 基于服务的模块化架构，代码清晰易于维护
+- 内置 `WindowDebugger` 调试工具，方便排查窗口操作问题
+- 支持通过 GitHub Actions 自动构建和发布
+
+---
+
+## 📥 下载与安装
+
+### 方式一：直接下载（推荐）
+
+前往 [Releases 页面](https://github.com/mhlms/SeeThroughWindows-dist/releases) 下载最新的发布包。
+
+- **自包含版本** (`*-self-contained-win-x64.zip`)：已内置 .NET 9 运行时，解压即用。
+- **框架依赖版本** (`*-framework-dependent.zip`)：体积较小，需自行安装 [.NET 9 桌面运行时](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)。
+
+### 方式二：通过 Scoop 安装（上游原版）
 
 ```powershell
-# Add the NeonTowel bucket
 scoop bucket add neontowel https://github.com/NeonTowel/scoop-bucket
-
-# Install SeeThroughWindows
 scoop install neontowel/seethroughwindows
 ```
 
-This method automatically handles:
+> **注意**：Scoop 安装的是上游稳定版，可能不包含本分支的最新多语言功能。
 
-- Downloading the latest version
-- Installing to the correct location
-- Adding to your PATH
-- Easy updates with `scoop update seethroughwindows`
+---
 
-### Option 2: Direct Download
+## 🚀 使用方法
 
-Releases can also be downloaded directly from the [GitHub Releases page](https://github.com/NeonTowel/SeeThroughWindows-dist/releases/latest).
+1. 运行 `SeeThroughWindows.exe`，软件将最小化到系统托盘。
+2. 右键点击托盘图标，选择 **“选项”** 打开设置界面。
+3. 在 **“外观”** 分组中选择您喜欢的主题、强调色以及界面语言。
+4. 在 **“窗口透明化”** 分组中设置您的专属热键（默认 `Ctrl+Win+Z`）。
+5. 激活任意窗口，按下热键即可切换透明状态。
 
-The current release is [v1.0.9](https://github.com/NeonTowel/SeeThroughWindows-dist/releases/tag/v1.0.9), which includes both:
+### ⌨️ 默认快捷键参考
 
-- **Framework-dependent**: Requires .NET 9 runtime to be installed
-- **Self-contained**: Includes .NET 9 runtime (larger file size)
+| 功能 | 快捷键 |
+|------|--------|
+| 切换透明 | `Ctrl + Win + Z`（可自定义） |
+| 最大化/最小化窗口 | `Ctrl + Win + ↑` / `↓` |
+| 移动到其他显示器 | `Ctrl + Win + ←` / `→` |
+| 增加/减少透明度 | `Ctrl + Win + PageUp` / `PageDown` |
 
-## Features
+### 💡 温馨提示：误操作鼠标穿透怎么办？
 
-### 🎨 Beautiful Catppuccin Theming
+如果您不小心对 **SeeThroughWindows 自己的设置窗口** 启用了“鼠标穿透”，会导致无法用鼠标点击界面。此时请按以下步骤恢复：
 
-- **Four stunning theme flavors**: Latte (light), Frappé, Macchiato, and Mocha (dark variants)
-- **10 customizable accent colors**: Lavender, Blue, Mauve, Pink, Teal, Green, Peach, Yellow, Red, and Sky
-- **Real-time theme switching**: Change themes and accent colors instantly without restarting
-- **Enhanced UI elements**: Custom-rendered checkboxes, track bars, and controls with improved visibility
+1. 按下 **`Win + Tab`** 打开任务视图。
+2. 用键盘方向键选中 `SeeThroughWindows` 窗口，按回车激活。
+3. 直接按下您设置的热键（例如 `Ctrl+Win+Z`）即可关闭透明/穿透效果，窗口恢复正常。
 
-### 🚀 Advanced Window Management
+> 软件已内置防护逻辑，通常情况下**不会**对自身启用鼠标穿透。以上操作仅作为紧急备用。
 
-- **Global Hotkeys**: Configure custom hotkey combinations to toggle window transparency
-- **Auto-Apply on Startup**: Automatically apply transparency to all eligible windows when the application starts
-- **Global Reset Function**: Reset transparency for all non-opaque windows with a single button
-- **Multi-Monitor Support**: Move windows between monitors with hotkeys
-- **Transparency Levels**: Fine-tune transparency with increment/decrement hotkeys
-- **Click-Through Mode**: Make windows transparent to mouse clicks
+---
 
-### 🔧 Enhanced System Integration
+## 🙏 致谢与上游项目
 
-- **Service-Based Architecture**: Modular design with dedicated services for window management, settings, and auto-apply functionality
-- **System Tray Integration**: Runs minimized in the system tray with comprehensive context menu
-- **Single Instance**: Prevents multiple instances from running simultaneously
-- **Persistent Settings**: All preferences including themes and hotkeys are saved between sessions
+本软件基于以下优秀项目演进而来，在此表示诚挚感谢：
 
-### 🛠️ Developer Tools
+- **[MOBZystems / SeeThroughWindows](https://github.com/mobzystems/SeeThroughWindows)**  
+  软件的原始作者，提供了窗口透明化的核心实现与 Win32 交互逻辑。
 
-- **WindowDebugger**: Standalone debugging tool for window transparency management and testing
-- **Comprehensive Logging**: Enhanced debug output for troubleshooting window operations
-- **Modular Service Container**: Dependency injection pattern for better testability and maintainability
+- **[NeonTowel / SeeThroughWindows-dist](https://github.com/NeonTowel/SeeThroughWindows-dist)**  
+  引入了现代化的 Catppuccin 主题系统、服务架构重构、自动应用透明等大量增强功能，并建立了完善的 GitHub Actions 发布流程。
 
-## Usage
+### 🌟 本仓库 (`mhlms/SeeThroughWindows-dist`) 的主要贡献
 
-1. Run the application (it will appear in the system tray)
-2. Configure your preferred theme and accent color in the Appearance section
-3. Set up your hotkey combinations in the Hotkeys section
-4. Enable "Auto-Apply on Startup" if you want transparency applied automatically
-5. Press your configured hotkey while any window is active to toggle its transparency
+在 NeonTowel 版本的基础上，新增了以下功能与改进：
 
-### Default Hotkeys
+- ✅ **完整的界面多语言支持**（语言切换逻辑与持久化存储）
+- ✅ **优化的语言扩展机制**（新增语言无需修改全部资源文件）
+- ✅ **修复若干构建脚本兼容性问题**
+- ✅ **改进用户体验细节**（如防止对自身误启用鼠标穿透）
 
-- **Toggle Transparency**: `Ctrl+Win+T` (configurable)
-- **Maximize/Minimize**: `Ctrl+Win+Up/Down`
-- **Move Between Monitors**: `Ctrl+Win+Left/Right`
-- **Adjust Transparency**: `Ctrl+Win+PageUp/PageDown`
+---
 
-### New Features in v1.0.9
+## 🛠️ 开发相关
 
-- **Auto-Apply on Startup**: Automatically make all eligible windows transparent when the app starts
-- **Global Reset**: Reset transparency for all windows with the "Reset Transparency Globally" button
-- **Enhanced Theming**: Beautiful Catppuccin themes with customizable accent colors
-- **Improved Service Architecture**: More reliable window management with better error handling
+### 环境要求
 
-## System Requirements
+- [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
+- Windows 操作系统（本软件依赖 Win32 API）
 
-- Windows 7 or later
-- .NET 9.0 Runtime (included in standalone releases)
-
-**Note**: See Through Windows is Windows-only - it will not run on Linux or Mac!
-
-## Development
-
-### Prerequisites
-
-- [.NET 9.0 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
-- [Visual Studio Code](https://code.visualstudio.com/) with C# Dev Kit extension
-- Windows OS (this is a Windows-only application)
-
-### Getting Started with VS Code
-
-1. **Clone the repository**:
-
-   ```bash
-   git clone <repository-url>
-   cd SeeThroughWindows-dist
-   code .
-   ```
-
-2. **Install recommended extensions**: Open the project in VS Code and install the recommended extensions when prompted, or run:
-
-   ```bash
-   code --install-extension ms-dotnettools.csdevkit
-   ```
-
-3. **Build the project**:
-
-   ```bash
-   dotnet build
-   ```
-
-4. **Run the application**:
-
-   ```bash
-   dotnet run --project SeeThroughWindows
-   ```
-
-5. **Debug**: Press `F5` or use the "Launch SeeThroughWindows" configuration
-
-### Available Commands
-
-#### VS Code Tasks
-
-- **Build**: `Ctrl+Shift+P` → "Tasks: Run Task" → "build"
-- **Clean**: `Ctrl+Shift+P` → "Tasks: Run Task" → "clean"
-- **Publish**: `Ctrl+Shift+P` → "Tasks: Run Task" → "publish"
-
-#### PowerShell Scripts
-
-```powershell
-# Build
-.\scripts\build.ps1 -Task Build
-
-# Run
-.\scripts\build.ps1 -Task Run
-
-# Publish Release
-.\scripts\build.ps1 -Task Publish -Configuration Release
-
-# Clean
-.\scripts\build.ps1 -Task Clean
-
-# Format code
-.\scripts\build.ps1 -Task Format
-```
-
-#### Command Line
+### 构建命令
 
 ```bash
-# Restore packages
+git clone https://github.com/mhlms/SeeThroughWindows-dist.git
+cd SeeThroughWindows-dist
 dotnet restore
-
-# Build
 dotnet build
-
-# Run main application
 dotnet run --project SeeThroughWindows
-
-# Run WindowDebugger tool
-dotnet run --project WindowDebugger
-
-# Publish self-contained
-dotnet publish SeeThroughWindows -c Release --self-contained true --runtime win-x64
-
-# Publish framework-dependent
-dotnet publish SeeThroughWindows -c Release --self-contained false
 ```
 
-### Project Structure
+### 添加新语言
 
-```
-SeeThroughWindows/
-├── .cursorrules/                   # Cursor AI coding standards and guidelines
-├── .github/                        # GitHub workflows and templates
-│   └── workflows/
-│       ├── build-and-package.yml   # Build and packaging workflow
-│       └── ci.yml                  # Continuous integration workflow
-├── .vscode/                        # VS Code configuration
-│   ├── extensions.json             # Recommended extensions
-│   ├── launch.json                # Debug configuration
-│   ├── settings.json              # Workspace settings
-│   └── tasks.json                 # Build tasks
-├── docs/                          # Documentation
-│   └── DEVELOPMENT.md             # Detailed development guide
-├── scripts/                       # Build and utility scripts
-│   └── build.ps1                 # PowerShell build script
-├── SeeThroughWindows/             # Main application
-│   ├── Infrastructure/            # Dependency injection and service container
-│   ├── Models/                    # Data models and DTOs
-│   ├── Properties/                # Assembly info and resources
-│   ├── Services/                  # Business logic services
-│   │   ├── ApplicationService.cs  # Main application coordination
-│   │   ├── AutoApplyService.cs   # Auto-apply transparency functionality
-│   │   ├── HotkeyManager.cs      # Global hotkey management
-│   │   ├── SettingsManager.cs    # Settings persistence
-│   │   ├── UpdateChecker.cs      # Update checking service
-│   │   ├── Win32Api.cs           # Windows API wrappers
-│   │   └── WindowManager.cs      # Window manipulation service
-│   ├── Themes/                   # Catppuccin theme system
-│   │   ├── CatppuccinTheme.cs    # Theme definitions and color palettes
-│   │   └── ThemeManager.cs       # Theme application and management
-│   ├── images/                   # Application icons
-│   ├── Hotkey.cs                 # Global hotkey registration
-│   ├── Program.cs                # Application entry point
-│   ├── SeeThrougWindowsForm.cs   # Main form logic
-│   ├── SeeThrougWindowsForm.Designer.cs # Form designer code
-│   └── SeeThroughWindows.csproj  # Project file
-├── WindowDebugger/               # Standalone debugging tool
-│   └── WindowDebugger.csproj    # Debug tool project file
-├── SeeThroughWindowsSetup/       # Installer project
-│   └── SeeThroughWindowsSetup.vdproj # Visual Studio installer project
-├── .editorconfig                # Code style configuration
-├── .gitignore                  # Git ignore rules
-├── CATPPUCCIN_THEME_README.md  # Detailed theming documentation
-├── REFACTORING_README.md       # Architecture and refactoring notes
-├── Directory.Build.props       # MSBuild properties
-├── global.json                # .NET SDK version requirements
-└── SeeThroughWindows.sln      # Solution file
-```
+1. 复制 `SeeThroughWindows/Resources/Strings.resx` 并重命名为目标文化名称（如 `Strings.ja.resx`）。
+2. 翻译文件中的 `<value>` 内容。
+3. 在 `SeeThroughWindows/Services/LocalizationService.cs` 的 `supportedLanguages` 数组中添加一行新语言条目。
+4. 重新编译即可。
 
-### Architecture
+详细开发文档请参考项目中的 `docs/DEVELOPMENT.md` 及各功能模块的注释。
 
-The application now features a modern service-based architecture:
+---
 
-#### Core Technologies
+## 📄 许可证
 
-- **Windows Forms**: UI framework for the system tray and configuration
-- **Win32 APIs**: Window manipulation and global hotkey registration
-- **Service Container**: Dependency injection for modular design
-- **Registry**: Settings and theme persistence
+本项目使用 **GNU General Public License v3.0 (GPL-3.0)** 许可证。  
+这意味着您可以自由使用、修改和分发本软件，但衍生作品也必须以相同的许可证开源。
 
-#### Service Architecture
+完整许可证文本请参阅仓库中的 [LICENSE](LICENSE) 文件。
 
-- **ApplicationService**: Main coordination service for window transparency operations
-- **WindowManager**: Low-level window manipulation and Win32 API interactions
-- **SettingsManager**: Configuration persistence and retrieval
-- **AutoApplyService**: Automatic transparency application on startup
-- **HotkeyManager**: Global hotkey registration and management
-- **ThemeManager**: Catppuccin theme application and customization
+---
 
-#### Key Components
+## 🔗 相关链接
 
-- **Program.cs**: Application entry point with service container initialization
-- **SeeThrougWindowsForm.cs**: Main UI with enhanced theming and new features
-- **CatppuccinTheme.cs**: Complete implementation of Catppuccin color system
-- **WindowDebugger**: Standalone tool for debugging window transparency issues
+- 🏠 **本仓库**：[mhlms/SeeThroughWindows-dist](https://github.com/mhlms/SeeThroughWindows-dist)
+- 🌟 **上游仓库 (NeonTowel)**：[NeonTowel/SeeThroughWindows-dist](https://github.com/NeonTowel/SeeThroughWindows-dist)
+- 📜 **原始项目 (MOBZystems)**：[mobzystems/SeeThroughWindows](https://github.com/mobzystems/SeeThroughWindows)
+- 🎨 **Catppuccin 配色**：[https://catppuccin.com](https://catppuccin.com)
 
-### Development Workflow
+---
 
-1. **Code Style**: The project uses EditorConfig and Cursor AI coding standards for consistent formatting
-2. **Code Analysis**: .NET analyzers enabled for code quality
-3. **Service-Based Testing**: Modular architecture allows for better unit testing
-4. **Theme Development**: Real-time theme switching for rapid UI development
-5. **Debugging**: Enhanced logging and dedicated WindowDebugger tool
-
-### New in v1.0.9 Development Features
-
-- **Enhanced CI/CD**: Updated GitHub workflows for automated building and packaging
-- **Cursor AI Integration**: Comprehensive coding standards and guidelines in `.cursorrules/`
-- **Modular Architecture**: Service-based design with dependency injection
-- **Theme System**: Complete Catppuccin implementation with 4 flavors and 10 accent colors
-- **Auto-Apply Feature**: Background service for automatic transparency application
-- **Global Reset**: System-wide transparency reset functionality
-- **WindowDebugger Tool**: Standalone debugging utility for development and troubleshooting
-
-## Release Process
-
-### 🧪 Beta Releases (from `devel` branch)
-
-Beta releases use semantic versioning with pre-release identifiers:
-
-```powershell
-# Create a beta release
-.\scripts\create-beta-release.ps1 -Version "1.0.9" -BetaNumber 1
-# This creates tag: v1.0.9-beta.1
-```
-
-Beta releases are:
-
-- Built from the `devel` branch
-- Marked as "pre-release" on GitHub
-- Include latest features but may be unstable
-- Perfect for testing new functionality
-
-### 🌟 Stable Releases (from `main` branch)
-
-Stable releases are created after beta testing is complete:
-
-```powershell
-# Create a stable release (after merging devel to main)
-.\scripts\create-stable-release.ps1 -Version "1.0.9" -MergeFromDevel
-# This creates tag: v1.0.9
-```
-
-Stable releases are:
-
-- Built from the `main` branch
-- Thoroughly tested through beta releases
-- Ready for production use
-- Follow semantic versioning (X.Y.Z)
-
-### 📋 Versioning Strategy
-
-- **`main` branch**: Stable releases (`v1.0.9`, `v1.1.0`)
-- **`devel` branch**: Beta releases (`v1.0.9-beta.1`, `v1.1.0-beta.2`)
-- **Feature branches**: No automatic releases
-
-### 🔄 Workflow
-
-1. **Development**: Work on feature branches, merge to `devel`
-2. **Beta Testing**: Create beta releases from `devel` using the script
-3. **Stabilization**: Fix issues, create additional beta releases as needed
-4. **Release**: Merge `devel` to `main`, create stable release
-
-## License
-
-Copyright © 2008-2024, MOBZystems BV, Amsterdam
-
-See [LICENSE](LICENSE) file for details.
+*Made with 💜 by the SeeThroughWindows community*
