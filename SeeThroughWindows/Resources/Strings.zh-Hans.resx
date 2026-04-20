@@ -162,16 +162,16 @@
 
   <!-- ==================== 主题名称（Flavor Display Names） ==================== -->
   <data name="ThemeNameLatte" xml:space="preserve">
-    <value>🌻 Latte</value>
+    <value>🌻 拿铁</value>
   </data>
   <data name="ThemeNameFrappe" xml:space="preserve">
-    <value>🪴 Frappé</value>
+    <value>🪴 冰沙</value>
   </data>
   <data name="ThemeNameMacchiato" xml:space="preserve">
-    <value>🌺 Macchiato</value>
+    <value>🌺 玛奇朵</value>
   </data>
   <data name="ThemeNameMocha" xml:space="preserve">
-    <value>🌿 Mocha</value>
+    <value>🌿 摩卡</value>
   </data>
 
   <!-- ==================== 强调色名称（Accent Color Display Names） ==================== -->
