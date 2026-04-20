@@ -5,6 +5,7 @@ using SeeThroughWindows.Themes;
 using SeeThroughWindows.Services;
 using SeeThroughWindows.Models;
 using SeeThroughWindows.Infrastructure;
+using System.Linq;
 
 namespace SeeThroughWindows
 {
@@ -289,10 +290,18 @@ namespace SeeThroughWindows
             groupBox3.Text = _localizationService.GetString("GroupBoxAppearance");
 
             // Labels
-            label1.Text = _localizationService.GetString("LabelHotkey");
-            label2.Text = _localizationService.GetString("LabelTransparency");
-            label3.Text = _localizationService.GetString("LabelTransparent");
-            label4.Text = _localizationService.GetString("LabelOpaque");
+            // Find labels that are local variables in designer (not class fields)
+            var lblHotkey = groupBox1.Controls.Find("label1", true).FirstOrDefault() as Label;
+            if (lblHotkey != null) lblHotkey.Text = _localizationService.GetString("LabelHotkey");
+            
+            var lblTransparency = groupBox1.Controls.Find("label2", true).FirstOrDefault() as Label;
+            if (lblTransparency != null) lblTransparency.Text = _localizationService.GetString("LabelTransparency");
+            
+            var lblTransparent = groupBox1.Controls.Find("label3", true).FirstOrDefault() as Label;
+            if (lblTransparent != null) lblTransparent.Text = _localizationService.GetString("LabelTransparent");
+            
+            var lblOpaque = groupBox1.Controls.Find("label4", true).FirstOrDefault() as Label;
+            if (lblOpaque != null) lblOpaque.Text = _localizationService.GetString("LabelOpaque");
             themeLabel.Text = _localizationService.GetString("LabelTheme");
             accentColorLabel.Text = _localizationService.GetString("LabelAccentColor");
             labelLanguage.Text = _localizationService.GetString("LabelLanguage");
