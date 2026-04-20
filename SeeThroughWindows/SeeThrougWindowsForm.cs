@@ -806,12 +806,12 @@ namespace SeeThroughWindows
         private void PopulateThemeComboBox()
         {
             themeComboBox.Items.Clear();
-
+        
             foreach (CatppuccinTheme.Flavor flavor in Enum.GetValues<CatppuccinTheme.Flavor>())
             {
-                themeComboBox.Items.Add(new ThemeComboBoxItem(flavor));
+                themeComboBox.Items.Add(new ThemeComboBoxItem(flavor, _localizationService));
             }
-
+        
             UpdateThemeSelection();
         }
 
@@ -830,12 +830,12 @@ namespace SeeThroughWindows
         private void PopulateAccentColorComboBox()
         {
             accentColorComboBox.Items.Clear();
-
+        
             foreach (CatppuccinTheme.AccentColor accentColor in Enum.GetValues<CatppuccinTheme.AccentColor>())
             {
-                accentColorComboBox.Items.Add(new AccentColorComboBoxItem(accentColor));
+                accentColorComboBox.Items.Add(new AccentColorComboBoxItem(accentColor, _localizationService));
             }
-
+        
             UpdateAccentColorSelection();
         }
 
@@ -903,25 +903,22 @@ namespace SeeThroughWindows
         private class ThemeComboBoxItem
         {
             public CatppuccinTheme.Flavor Flavor { get; }
-
-            public ThemeComboBoxItem(CatppuccinTheme.Flavor flavor)
+            private readonly ILocalizationService _localizationService;
+        
+            public ThemeComboBoxItem(CatppuccinTheme.Flavor flavor, ILocalizationService localizationService)
             {
                 Flavor = flavor;
+                _localizationService = localizationService;
             }
-
+        
             public override string ToString()
             {
-                // Use localization service to get display name
-                // Since this is an inner class, we need a way to access the service.
-                // For simplicity, we'll use a static accessor or pass the service.
-                // However, to avoid tight coupling, we'll rely on the form to refresh display.
-                // For now, return flavor name directly; localization will be applied by refreshing.
                 return Flavor switch
                 {
-                    CatppuccinTheme.Flavor.Latte => ServiceLocator.IsRegistered<ILocalizationService>() ? ServiceLocator.Resolve<ILocalizationService>().GetString("ThemeNameLatte") : "🌻 Latte",
-                    CatppuccinTheme.Flavor.Frappe => ServiceLocator.IsRegistered<ILocalizationService>() ? ServiceLocator.Resolve<ILocalizationService>().GetString("ThemeNameFrappe") : "🪴 Frappé",
-                    CatppuccinTheme.Flavor.Macchiato => ServiceLocator.IsRegistered<ILocalizationService>() ? ServiceLocator.Resolve<ILocalizationService>().GetString("ThemeNameMacchiato") : "🌺 Macchiato",
-                    CatppuccinTheme.Flavor.Mocha => ServiceLocator.IsRegistered<ILocalizationService>() ? ServiceLocator.Resolve<ILocalizationService>().GetString("ThemeNameMocha") : "🌿 Mocha",
+                    CatppuccinTheme.Flavor.Latte => _localizationService.GetString("ThemeNameLatte"),
+                    CatppuccinTheme.Flavor.Frappe => _localizationService.GetString("ThemeNameFrappe"),
+                    CatppuccinTheme.Flavor.Macchiato => _localizationService.GetString("ThemeNameMacchiato"),
+                    CatppuccinTheme.Flavor.Mocha => _localizationService.GetString("ThemeNameMocha"),
                     _ => Flavor.ToString()
                 };
             }
@@ -930,26 +927,28 @@ namespace SeeThroughWindows
         private class AccentColorComboBoxItem
         {
             public CatppuccinTheme.AccentColor AccentColor { get; }
-
-            public AccentColorComboBoxItem(CatppuccinTheme.AccentColor accentColor)
+            private readonly ILocalizationService _localizationService;
+        
+            public AccentColorComboBoxItem(CatppuccinTheme.AccentColor accentColor, ILocalizationService localizationService)
             {
                 AccentColor = accentColor;
+                _localizationService = localizationService;
             }
-
+        
             public override string ToString()
             {
                 return AccentColor switch
                 {
-                    CatppuccinTheme.AccentColor.Lavender => ServiceLocator.IsRegistered<ILocalizationService>() ? ServiceLocator.Resolve<ILocalizationService>().GetString("AccentColorLavender") : "💜 Lavender",
-                    CatppuccinTheme.AccentColor.Blue => ServiceLocator.IsRegistered<ILocalizationService>() ? ServiceLocator.Resolve<ILocalizationService>().GetString("AccentColorBlue") : "💙 Blue",
-                    CatppuccinTheme.AccentColor.Mauve => ServiceLocator.IsRegistered<ILocalizationService>() ? ServiceLocator.Resolve<ILocalizationService>().GetString("AccentColorMauve") : "🔮 Mauve",
-                    CatppuccinTheme.AccentColor.Pink => ServiceLocator.IsRegistered<ILocalizationService>() ? ServiceLocator.Resolve<ILocalizationService>().GetString("AccentColorPink") : "💗 Pink",
-                    CatppuccinTheme.AccentColor.Teal => ServiceLocator.IsRegistered<ILocalizationService>() ? ServiceLocator.Resolve<ILocalizationService>().GetString("AccentColorTeal") : "🌊 Teal",
-                    CatppuccinTheme.AccentColor.Green => ServiceLocator.IsRegistered<ILocalizationService>() ? ServiceLocator.Resolve<ILocalizationService>().GetString("AccentColorGreen") : "💚 Green",
-                    CatppuccinTheme.AccentColor.Peach => ServiceLocator.IsRegistered<ILocalizationService>() ? ServiceLocator.Resolve<ILocalizationService>().GetString("AccentColorPeach") : "🍑 Peach",
-                    CatppuccinTheme.AccentColor.Yellow => ServiceLocator.IsRegistered<ILocalizationService>() ? ServiceLocator.Resolve<ILocalizationService>().GetString("AccentColorYellow") : "💛 Yellow",
-                    CatppuccinTheme.AccentColor.Red => ServiceLocator.IsRegistered<ILocalizationService>() ? ServiceLocator.Resolve<ILocalizationService>().GetString("AccentColorRed") : "❤️ Red",
-                    CatppuccinTheme.AccentColor.Sky => ServiceLocator.IsRegistered<ILocalizationService>() ? ServiceLocator.Resolve<ILocalizationService>().GetString("AccentColorSky") : "🩵 Sky",
+                    CatppuccinTheme.AccentColor.Lavender => _localizationService.GetString("AccentColorLavender"),
+                    CatppuccinTheme.AccentColor.Blue => _localizationService.GetString("AccentColorBlue"),
+                    CatppuccinTheme.AccentColor.Mauve => _localizationService.GetString("AccentColorMauve"),
+                    CatppuccinTheme.AccentColor.Pink => _localizationService.GetString("AccentColorPink"),
+                    CatppuccinTheme.AccentColor.Teal => _localizationService.GetString("AccentColorTeal"),
+                    CatppuccinTheme.AccentColor.Green => _localizationService.GetString("AccentColorGreen"),
+                    CatppuccinTheme.AccentColor.Peach => _localizationService.GetString("AccentColorPeach"),
+                    CatppuccinTheme.AccentColor.Yellow => _localizationService.GetString("AccentColorYellow"),
+                    CatppuccinTheme.AccentColor.Red => _localizationService.GetString("AccentColorRed"),
+                    CatppuccinTheme.AccentColor.Sky => _localizationService.GetString("AccentColorSky"),
                     _ => AccentColor.ToString()
                 };
             }
