@@ -213,56 +213,40 @@ namespace SeeThroughWindows
             shiftCheckBox.Location = new Point(135, 75);
             shiftCheckBox.Margin = new Padding(6, 8, 6, 8);
             shiftCheckBox.Name = "shiftCheckBox";
-            shiftCheckBox.Size = new Size(70, 19);
+            shiftCheckBox.Size = new Size(80, 19);   // 原 70 → 80
             shiftCheckBox.TabIndex = 2;
             shiftCheckBox.Text = "&Shift";
             shiftCheckBox.UseVisualStyleBackColor = true;
             shiftCheckBox.CheckedChanged += UpdateHotKey;
-            // 
-            // hotKeyComboBox
-            // 
-            hotKeyComboBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            hotKeyComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            hotKeyComboBox.FlatStyle = FlatStyle.System;
-            hotKeyComboBox.FormattingEnabled = true;
-            hotKeyComboBox.Location = new Point(120, 30);
-            hotKeyComboBox.Margin = new Padding(6, 8, 6, 8);
-            hotKeyComboBox.Name = "hotKeyComboBox";
-            hotKeyComboBox.Size = new Size(440, 23);
-            hotKeyComboBox.TabIndex = 1;
-            hotKeyComboBox.SelectedIndexChanged += UpdateHotKey;
-            // 
+            
             // controlCheckBox
-            // 
             controlCheckBox.AutoSize = false;
-            controlCheckBox.Location = new Point(205, 75);
+            controlCheckBox.Location = new Point(215, 75);  // 原 205 → 215（左移增加间距）
             controlCheckBox.Margin = new Padding(6, 8, 6, 8);
             controlCheckBox.Name = "controlCheckBox";
-            controlCheckBox.Size = new Size(80, 19);
+            controlCheckBox.Size = new Size(90, 19);        // 原 80 → 90
             controlCheckBox.TabIndex = 3;
             controlCheckBox.Text = "&Control";
             controlCheckBox.UseVisualStyleBackColor = true;
             controlCheckBox.CheckedChanged += UpdateHotKey;
-            // 
+            
             // altCheckBox
-            // 
             altCheckBox.AutoSize = false;
-            altCheckBox.Location = new Point(291, 75);
+            altCheckBox.Location = new Point(315, 75);      // 原 291 → 315
             altCheckBox.Margin = new Padding(6, 8, 6, 8);
             altCheckBox.Name = "altCheckBox";
-            altCheckBox.Size = new Size(55, 19);
+            altCheckBox.Size = new Size(60, 19);            // 原 55 → 60
             altCheckBox.TabIndex = 4;
             altCheckBox.Text = "&Alt";
             altCheckBox.UseVisualStyleBackColor = true;
             altCheckBox.CheckedChanged += UpdateHotKey;
-            // 
+            
             // windowsCheckBox
-            // 
             windowsCheckBox.AutoSize = false;
-            windowsCheckBox.Location = new Point(352, 75);
+            windowsCheckBox.Location = new Point(385, 75);  // 原 352 → 385
             windowsCheckBox.Margin = new Padding(6, 8, 6, 8);
             windowsCheckBox.Name = "windowsCheckBox";
-            windowsCheckBox.Size = new Size(90, 19);
+            windowsCheckBox.Size = new Size(100, 19);       // 原 90 → 100
             windowsCheckBox.TabIndex = 5;
             windowsCheckBox.Text = "&Windows";
             windowsCheckBox.UseVisualStyleBackColor = true;
