@@ -302,9 +302,9 @@ namespace SeeThroughWindows
             
             var lblOpaque = groupBox1.Controls.Find("label4", true).FirstOrDefault() as Label;
             if (lblOpaque != null) lblOpaque.Text = _localizationService.GetString("LabelOpaque");
-            themeLabel.Text = _localizationService.GetString("LabelTheme");
-            accentColorLabel.Text = _localizationService.GetString("LabelAccentColor");
-            labelLanguage.Text = _localizationService.GetString("LabelLanguage");
+            if (themeLabel != null) themeLabel.Text = _localizationService.GetString("LabelTheme");
+            if (accentColorLabel != null) accentColorLabel.Text = _localizationService.GetString("LabelAccentColor");
+            if (labelLanguage != null) labelLanguage.Text = _localizationService.GetString("LabelLanguage");
 
             // Checkboxes
             shiftCheckBox.Text = _localizationService.GetString("CheckBoxShift");
