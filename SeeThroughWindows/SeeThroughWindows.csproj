@@ -1,4 +1,4 @@
-﻿﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -29,12 +29,6 @@
     <!-- Language Features -->
     <LangVersion>latest</LangVersion>
 
-    <!-- DO NOT SET THESE PROPERTIES -->
-    <!-- Setting a font destroys the initial size of the form-->
-    <!--<ApplicationDefaultFont>Segoe UI, 9pt</ApplicationDefaultFont>-->
-    <!-- Setting High DPI awareness mucks up layout -->
-    <!--<ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>-->
-    <!--<ApplicationHighDpiMode>DpiUnawareGdiScaled</ApplicationHighDpiMode>-->
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
   </PropertyGroup>
 
@@ -56,11 +50,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-
-  <!-- 
-    Localization resource files (Strings.resx, Strings.zh-Hans.resx) are automatically 
-    included by the .NET SDK as EmbeddedResource items. No explicit entries needed.
-  -->
 
   <ItemGroup>
     <None Update="images\Glasses-64B.png">
