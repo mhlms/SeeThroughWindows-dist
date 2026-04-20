@@ -1,7 +1,7 @@
 using Microsoft.Win32;
 using System.Globalization;
 using System.Resources;
-using SeeThroughWindows.Models; // 引用独立的 LanguageInfo 模型
+using SeeThroughWindows.Models;
 
 namespace SeeThroughWindows.Services
 {
@@ -71,8 +71,6 @@ namespace SeeThroughWindows.Services
         public LocalizationService()
         {
             // Initialize resource manager with the base name of the resource files
-            // Note: The resource files should be placed in the "Resources" folder
-            // and have root namespace "SeeThroughWindows.Resources.Strings"
             _resourceManager = new ResourceManager("SeeThroughWindows.Resources.Strings", typeof(LocalizationService).Assembly);
             
             // Start with the current system UI culture
@@ -104,7 +102,6 @@ namespace SeeThroughWindows.Services
             catch (CultureNotFoundException)
             {
                 // If culture is not supported, fallback to invariant or keep current
-                // Log error if needed, but silently ignore for production
             }
         }
 
@@ -120,17 +117,31 @@ namespace SeeThroughWindows.Services
             }
             catch
             {
-                // Return the key itself as fallback
                 return key;
             }
         }
 
         public IEnumerable<LanguageInfo> GetAvailableLanguages()
         {
-            // The display names are themselves localized strings
-            yield return new LanguageInfo("en-US", GetString("LanguageEnglish"));
-            yield return new LanguageInfo("zh-Hans", GetString("LanguageChineseSimplified"));
-            // Additional languages can be added here
+            // Static list of supported languages with fallback display names
+            var supportedLanguages = new[]
+            {
+                new { Culture = "en-US", ResourceKey = "LanguageEnglish", FallbackName = "English" },
+                new { Culture = "zh-Hans", ResourceKey = "LanguageChineseSimplified", FallbackName = "简体中文" },
+                // ★ To add a new language, simply add a new entry here and create the corresponding .resx file.
+                // Example: new { Culture = "ja", ResourceKey = "LanguageJapanese", FallbackName = "日本語" },
+            };
+
+            foreach (var lang in supportedLanguages)
+            {
+                string displayName = GetString(lang.ResourceKey);
+                // If the resource is missing (returns the key itself), use the fallback name
+                if (string.IsNullOrEmpty(displayName) || displayName == lang.ResourceKey)
+                {
+                    displayName = lang.FallbackName;
+                }
+                yield return new LanguageInfo(lang.Culture, displayName);
+            }
         }
 
         public void SaveLanguagePreference(string cultureName)
@@ -174,7 +185,6 @@ namespace SeeThroughWindows.Services
                 // Registry access error, fallback
             }
 
-            // Return current system UI culture as default
             return CultureInfo.CurrentUICulture.Name;
         }
     }
