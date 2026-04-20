@@ -14,7 +14,7 @@ on:
       branch:
         description: 'Branch to release from'
         required: true
-        default: 'devel'
+        default: 'main'
         type: choice
         options:
           - main
@@ -76,23 +76,7 @@ jobs:
         echo "Branch: $branch"
         echo "Is Prerelease: $isPrerelease"
 
-    - name: Validate branch for release type
-      shell: pwsh
-      run: |
-        $version = "${{ steps.get-version.outputs.version }}"
-        $branch = "${{ steps.get-version.outputs.branch }}"
-        $isPrerelease = "${{ steps.get-version.outputs.is-prerelease }}" -eq "true"
-
-        if ($isPrerelease -and $branch -eq "main") {
-          Write-Error "❌ Pre-release versions (containing '-') should not be released from main branch"
-          exit 1
-        }
-
-        if (-not $isPrerelease -and $branch -eq "devel") {
-          Write-Warning "⚠️  Stable versions are typically released from main branch, but proceeding from devel"
-        }
-
-        echo "✅ Branch validation passed"
+    # Branch validation step removed to allow any release from any branch
 
     - name: Restore dependencies
       run: dotnet restore ${{ env.SOLUTION_PATH }}
